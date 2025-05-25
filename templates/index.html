@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Job Market Dashboard</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>📊 Job Market Analytics</h1>
+        
+        <form method="POST">
+            <button type="submit">🔄 Refresh Data Now</button>
+        </form>
+        
+        <div class="grid">
+            <div class="card">
+                <h2>🔥 Top Job Titles</h2>
+                <ul>
+                    {% for title, count in titles %}
+                    <li>{{ title }} <span class="count">{{ count }}</span></li>
+                    {% endfor %}
+                </ul>
+            </div>
+            
+            <div class="card">
+                <h2>🛠️ Most Demanded Skills</h2>
+                <ul>
+                    {% for skill, count in skills %}
+                    <li>{{ skill }} <span class="count">{{ count }}</span></li>
+                    {% endfor %}
+                </ul>
+            </div>
+            
+            <div class="card">
+                <h2>📍 Top Hiring Cities</h2>
+                <ul>
+                    {% for city, count in cities %}
+                    <li>{{ city }} <span class="count">{{ count }}</span></li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+        
+        <div class="chart-container">
+            <h2>📅 Job Posting Trends</h2>
+            <img src="/static/plots/trends.png" alt="Posting Trends">
+        </div>
+    </div>
+</body>
+</html>
